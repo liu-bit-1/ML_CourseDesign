@@ -1,0 +1,3 @@
+model,validation_auc
+Random Forest,0.5027016601342524
+Logistic Regression,0.47698309456232824
