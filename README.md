@@ -1,50 +1,83 @@
-# Machine Learning Course Design
+# ML_CourseDesign
 
-这是一个机器学习课程设计项目的初始化结构。当前阶段仅完成项目目录、依赖文件和基础代码框架准备，尚未开始训练模型或填写实验结果。
+基于机器学习的系统认证风险预测模型设计与实现。
+
+## 项目简介
+
+本项目基于 DataFountain「系统认证风险预测」竞赛数据，完成了数据探索分析（EDA）、数据预处理、特征工程、模型训练及模型评价等完整机器学习流程，并生成符合竞赛要求的提交文件。
 
 ## 项目结构
 
-```text
-ML_CourseDesign/
-├── data/
+```
+ML_CourseDesign
+│
+├── data
 │   ├── train_dataset.csv
 │   ├── test_dataset.csv
 │   └── submit_example.csv
-├── notebooks/
+│
+├── notebooks
 │   └── 01_EDA.ipynb
-├── src/
+│
+├── src
 │   ├── preprocess.py
 │   ├── train.py
+│   ├── diagnose.py
 │   └── utils.py
-├── README.md
-└── requirements.txt
+│
+├── outputs
+│   ├── preprocessed
+│   ├── model_results.csv
+│   ├── submission.csv
+│   ├── submission_label.csv
+│   ├── submission_proba.csv
+│   ├── label_distribution.png
+│   └── hour_distribution.png
+│
+├── requirements.txt
+└── README.md
 ```
 
-## 环境要求
+## 开发环境
 
 - Python 3.11
-- 依赖库见 `requirements.txt`
-
-## 安装依赖
-
-建议先创建并激活虚拟环境，然后安装项目依赖：
-
-```bash
-pip install -r requirements.txt
-```
+- pandas
+- numpy
+- matplotlib
+- scikit-learn
 
 ## 运行方式
 
-1. 数据文件放置在 `data/` 目录中。
-2. 使用 `notebooks/01_EDA.ipynb` 进行初步数据探索。
-3. 在 `src/preprocess.py` 中整理后续数据预处理流程。
-4. 在 `src/train.py` 中整理后续模型训练入口。
-5. 在 `src/utils.py` 中放置通用辅助函数。
+首先进行数据预处理：
 
-## 当前状态
+```bash
+python src/preprocess.py
+```
 
-- 已建立基础项目结构。
-- 已准备 EDA notebook 模板。
-- 已准备预处理、训练和工具函数脚本框架。
-- 暂未进行模型训练。
-- 暂未填写实验结果。
+然后进行模型训练：
+
+```bash
+python src/train.py
+```
+
+## 模型
+
+本项目实现了以下模型：
+
+- Logistic Regression（逻辑回归）
+- Random Forest（随机森林）
+
+模型评价指标采用 **AUC（Area Under Curve）**。
+
+## 输出结果
+
+程序运行后将在 `outputs/` 目录生成：
+
+- model_results.csv
+- submission.csv
+- submission_label.csv
+- submission_proba.csv
+
+## 数据来源
+
+DataFountain 系统认证风险预测竞赛数据，仅用于课程设计学习与研究。
